@@ -1,0 +1,35 @@
+
+    h1 {
+        color: blueviolet;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        text-align: center;
+       }
+       
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: darkgray;
+       }
+
+       table {
+
+           border-collapse: collapse;
+           width: 100%;
+       }
+
+       thead {
+           font-weight: bold;
+       }
+
+       thead td {
+           text-align: center;
+       }
+
+       td {
+
+           border: 1px solid black;
+           padding: 10px;
+
+       }
+
+
