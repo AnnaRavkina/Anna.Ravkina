@@ -1,0 +1,32 @@
+h1 {
+    color: #625670;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+   }
+
+   body {
+       background-color: #e3e3e1;
+       font-family: Arial, Helvetica, sans-serif;
+       font-weight: lighter;
+   }
+
+   p {
+       font-weight: bold;
+   }
+
+   table {
+       border-collapse: collapse;
+         }
+
+    thead {
+        font-weight: bold;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    thead td {
+        text-align: center;
+    }
