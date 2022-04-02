@@ -1,0 +1,31 @@
+{% extends "adventure.html" %}
+
+{% block container %}
+                
+        <h1>{{ title }}</h1>
+
+        <p>{{ text }}</p>
+
+        <img src="{{ url_for('static', filename='picture4.webp') }}">
+
+        {% if choices %}
+
+        <p>What do you do?</p>
+
+        <ul>
+                {% for (page_name, choice) in choices %}
+                <li>
+                <a href="{{url_for(page_name)}}">{{choice}}</a>
+                </li>
+                {% endfor %}
+        </ul>
+
+        {% else %}
+
+        <p>THE END.</p>
+
+
+        <p><a href="{{url_for('start')}}">Play again.</a></p>
+        {% endif %}
+
+{% endblock %}
