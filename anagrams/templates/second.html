@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block container %}
+
+    <h1> Anagrams </h1>
+
+    <ul>
+        {% for w in words %}
+
+            <li>{{ w }}</li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
