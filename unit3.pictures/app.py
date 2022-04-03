@@ -33,7 +33,7 @@ def talk():
 
     picture_url = "picture2.jpeg"
 
-    return render_template('wish.html', title=title, text=text, choices=choices, picture_url=picture_url)
+    return render_template('main.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 @app.route("/let_go")
 def let_go():
@@ -45,7 +45,7 @@ def let_go():
 
     picture_url = "picture3.jpeg"
 
-    return render_template('let_go.html', title=title, text=text, choices=choices, picture_url=picture_url)
+    return render_template('main.html', title=title, text=text, choices=choices, picture_url=picture_url)
 
 
 
@@ -59,4 +59,4 @@ def make_wish():
 
     picture_url = "picture4.webp"
 
-    return render_template('adventure.html', title=title, text=text, choices=choices, picture_url=picture_url)
+    return render_template('main.html', title=title, text=text, choices=choices, picture_url=picture_url)
