@@ -4,10 +4,16 @@
 
     <h1> Dictionary </h1>
 
+    {% if isreal %}
+        <h2> {{ original }} is a real word!</h2>
+    {% else %}
+        <h2>{{ original }} is not a real word!</h2>
+    {% endif %}
+
     <ul>
         {% for w in words %}
 
-            <li>{{ w }}</li>
+            <li><a href="{{ url_for('dictionary', word=w) }}"> {{ w }}</a></li>
 
         {% endfor %}
     </ul>

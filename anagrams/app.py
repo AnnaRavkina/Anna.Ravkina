@@ -31,13 +31,18 @@ def dictionary(word):
     word_list = f.read().splitlines()
     word = word.lower()
     l = []
+    letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j","k", "l", "m", "n", "o", "p", "q", "r", "s", "t","u", "v", "w", "x", "y", "z"]
+    isreal = True
 
-    for word in word_list:
-        word = word.lower()
-        if word.startwith(letter):
-            letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j","k", "l", "m", "n", "o", "p", "q", "r", "s", "t","u", "v", "w", "x", "y", "z"]
-            l.append(letter)
-            l.append(word)
-    return render_template('dictionary.html', title = title, words=l)
+    for item in word_list:
+        item = item.lower()
+        if item == word:
+            for letter in letters:
+                l.append(item + letter)
+    if l == []:
+        isreal = False
+    else:
+        isreal = True
+    return render_template('dictionary.html', title = title, words=l, isreal=isreal, original=word)
 
 
