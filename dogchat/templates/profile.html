@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="box">
+                <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64">
+                    <img src="{{ url_for('static', filename='playful.png') }}" alt="Image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                    <p>
+                        <strong>{{post['Name']}}</strong> <small>@{{post['Username']}}</small> <small>{{ post['Birthday'] }}</small>
+                        <br>
+                        <form>
+                        <p>{{ post['Bio'] }}</p>
+
+                <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">Add friend</button>
+                </div>
+                </div>
+                </form>
+        
+                    </p>
+                    </div>
+                </div>
+                </article>
+            </div>
+        <p class="title">
+            Info hero
+        </p>
+        <p class="subtitle">
+            Info subtitle
+        </p>
+        </div>
+    </section>
+{% endblock %}

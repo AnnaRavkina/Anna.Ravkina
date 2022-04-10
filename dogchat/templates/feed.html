@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="box">
+        <article class="media">
+        <div class="media-left">
+            <figure class="image is-64x64">
+            <img src="{{ url_for('static', filename='playful.png') }}" alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+            <p>
+                <strong>Den</strong> <small>@denchick123</small> 
+                <br>
+                <form>
+                <div class="field">
+                    <div class="control">
+                    <textarea class="textarea" placeholder="New Message" rows=2></textarea>
+                    </div>
+                </div>
+        
+        <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-link">Submit</button>
+        </div>
+        </div>
+        </form>
+
+            </p>
+            </div>
+        </div>
+        </article>
+    </div>
+
+    {% for post in posts.values() %}
+    <div class="box">
+        <article class="media">
+        <div class="media-left">
+            <figure class="image is-64x64">
+            <img src="{{ url_for('static', filename=post['Picture']) }}" alt="Image">
+            </figure>
+        </div>
+
+        <div class="media-content">
+            <div class="content">
+            <p>
+                <a href="{{url_for('profile', username=post['Username'])}}"> 
+                <strong>{{post['Name']}}</strong> <small>@{{post['Username']}}</small> 
+                </a>
+                <small>{{post['DateTime']}}</small>
+                <br>
+                {{post['Text']}}
+            </p>
+            </div>
+            <nav class="level is-mobile">
+            <div class="level-left">
+                <a class="level-item" aria-label="reply">
+                    <span class="icon-text">
+                        <span class="icon">
+                        <i class="fas fa-heart"></i>
+                        </span>
+                        <span>{{post['Likes'] | count }}</span>
+                    </span>
+                </a>
+
+                
+                <a class="level-item" aria-label="like" href="{{ url_for('comments', post_id=post['PostId'])}}">
+                    <span class="icon-text">
+                        <span class="icon">
+                        <i class="fas fa-comment"></i>
+                        </span>
+                        <span> {{post['Comments'] | count}} </span>
+                    </span>
+                </a>
+
+            </div>
+            </nav>
+        </div>
+        </article>
+    </div>
+    {% endfor %}
+{% endblock %}
