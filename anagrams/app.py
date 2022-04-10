@@ -24,5 +24,20 @@ def words(anagram):
 
     return render_template('second.html', title=title, words=l)
 
+@app.route('/dictionary/<string:word>')
+def dictionary(word):
+    title = "Dictionary"
+    f = open('words.txt')
+    word_list = f.read().splitlines()
+    word = word.lower()
+    l = []
+
+    for word in word_list:
+        word = word.lower()
+        if word.startwith(letter):
+            letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j","k", "l", "m", "n", "o", "p", "q", "r", "s", "t","u", "v", "w", "x", "y", "z"]
+            l.append(letter)
+            l.append(word)
+    return render_template('dictionary.html', title = title, words=l)
 
 
