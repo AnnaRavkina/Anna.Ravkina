@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <section class="hero is-info">
         <div class="hero-body">
-            <div class="box">
+       
+            
                 <article class="media">
                 <div class="media-left">
                     <figure class="image is-64x64">
-                    <img src="{{ url_for('static', filename='playful.png') }}" alt="Image">
+                    <img src="{{ url_for('static', filename=dog['Picture']) }}" alt="Image">
                     </figure>
                 </div>
                 <div class="media-content">
                     <div class="content">
                     <p>
-                        <strong>{{post['Name']}}</strong> <small>@{{post['Username']}}</small> <small>{{ post['Birthday'] }}</small>
+                        <strong>{{dog['Name']}}</strong> <small>@{{dog['Username']}}</small> <small>{{ dog['Birthday'] }}</small>
                         <br>
                         <form>
-                        <p>{{ post['Bio'] }}</p>
-
+                        <div class="field">
+                            <div class="control">
+                                <p>{{ dog['Bio'] }}</p>
+                            </div>
+                        </div>
+                
                 <div class="field is-grouped">
                 <div class="control">
                     <button class="button is-link">Add friend</button>
@@ -29,13 +35,35 @@
                     </div>
                 </div>
                 </article>
-            </div>
-        <p class="title">
-            Info hero
-        </p>
-        <p class="subtitle">
-            Info subtitle
-        </p>
+            
+
         </div>
     </section>
+
+
+
+  {% for post in dog['Posts'].values() %}
+  <section class="section">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-48x48">
+          <img src="{{ url_for('static', filename=post['Picture']) }}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <a href="{{url_for('profile', username=post['Username'])}}">
+            <strong>{{dog['Name']}}</strong> <small>@{{dog['Username']}}</small> 
+            </a>
+            <small>{{dog['DateTime']}}</small>
+          </p>
+          {{ post['Text'] }}
+        </div>
+
+      </div>
+    </article>
+  </section>
+    {% endfor %}
+
 {% endblock %}

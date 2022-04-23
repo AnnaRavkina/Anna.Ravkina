@@ -14,6 +14,6 @@ def comments(post_id):
     return render_template('comments.html', title="Comments", post=post)
 
 @app.route("/dogs/<string:username>")
-def dogs(username):
+def profile(username):
     dog = dogs[username]
     return render_template('profile.html', title=dog['Name'], dog=dog)
