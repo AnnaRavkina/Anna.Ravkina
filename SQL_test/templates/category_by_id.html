@@ -9,24 +9,25 @@
   <body>
   <section class="section">
     <div class="container">
+      
+      {% for name in categories %}
       <h1 class="title">
-        This is a Categories page: 
+        {{ name['CategoryName'] }} 
       </h1>
+      {% endfor %}
 
       <table class="table">
         <thead>
           <tr>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Number of Products</th>
+            <th>Supplier Name</th>
+            <th>Product Name</th>
           </tr>
         </thead>
         <tbody>
-          {% for category in food_categories %}
+          {% for category in categories %}
           <tr>
-            <td><a href="{{ url_for('categories', category_id=category['CategoryId'])}}">{{category['CategoryName']}}</a></td>
-            <td>{{category['Description']}}</td>
-            <td>{{category['ProductCount']}}</td>
+            <td><a href="{{ url_for('products', supplier_id=category['SupplierId'])}}">{{category['CompanyName']}}</td></a>
+            <td>{{category['ProductName']}}</td>
           </tr>
           {% endfor %}
         </tbody>

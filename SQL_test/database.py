@@ -33,8 +33,20 @@ def get_company(supplier_id):
 
 def get_all_categories():
     return query("""
-        SELECT Category.CategoryName, Category.Description, COUNT(Product.Id) AS ProductCount 
+        SELECT CategoryId, Category.CategoryName, Category.Description, COUNT(Product.Id) AS ProductCount 
         FROM Product
         INNER JOIN Category
             ON Product.CategoryId = Category.Id 
-        GROUP BY CategoryName""")
+        GROUP BY CategoryName
+        """)
+
+def get_categories_by_id(category_id):
+    return query("""
+        SELECT SupplierId, ProductName, CompanyName, CategoryName 
+        FROM Product
+        INNER JOIN Supplier
+            ON Product.SupplierId = Supplier.Id
+        INNER JOIN Category
+            ON Product.CategoryId = Category.Id
+            WHERE CategoryId = ?
+    """, category_id)
