@@ -22,4 +22,5 @@ def food_categories():
 @app.route("/categories/<int:category_id>")
 def categories(category_id):
     categories = database.get_categories_by_id(category_id)
+    print(categories)
     return render_template('category_by_id.html', categories=categories)
